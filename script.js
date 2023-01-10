@@ -40,8 +40,9 @@ function updateSketchPad(event) {
 }
 
 function draw(event) {
+    let color = document.querySelector('#color').value;
     if (isMouseDown) {
-        event.target.style.backgroundColor = 'black';
+        event.target.style.backgroundColor = color;
     }
 }
 
