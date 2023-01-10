@@ -6,8 +6,9 @@ function clearAll() {
     }
 }
 
-function generateGrid(size) {
+function generateGrid() {
     clearAll();
+    let size = document.querySelector('#size').value;
 
     const container = document.querySelector('#sketch-pad');
     let row;
@@ -35,7 +36,7 @@ function updateSketchPad(event) {
     const sizeText = document.querySelector('#size-text');
     sizeText.textContent = `${size} x ${size}`;
 
-    generateGrid(size);
+    generateGrid();
 }
 
 function draw(event) {
@@ -47,8 +48,7 @@ function draw(event) {
 let CELLS;
 let isMouseDown = false;
 
-const initialSize = parseInt(document.querySelector('#size').value);
-generateGrid(initialSize);
+generateGrid();
 
 let size = document.querySelector("#size");
 size.addEventListener('input', updateSketchPad);
@@ -57,4 +57,4 @@ document.body.addEventListener('mousedown', () => isMouseDown = true);
 document.body.addEventListener('mouseup', () => isMouseDown = false);
 
 const clear = document.querySelector('#clear');
-clear.addEventListener('click', () => {generateGrid(parseInt(document.querySelector('#size').value))});
+clear.addEventListener('click', generateGrid);
