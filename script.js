@@ -50,8 +50,8 @@ let isMouseDown = false;
 
 generateGrid();
 
-let size = document.querySelector("#size");
-size.addEventListener('input', updateSketchPad);
+let sizeSlider = document.querySelector("#size");
+sizeSlider.addEventListener('input', updateSketchPad);
 
 document.body.addEventListener('mousedown', () => isMouseDown = true);
 document.body.addEventListener('mouseup', () => isMouseDown = false);
