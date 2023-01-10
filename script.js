@@ -55,3 +55,6 @@ size.addEventListener('input', updateSketchPad);
 
 document.body.addEventListener('mousedown', () => isMouseDown = true);
 document.body.addEventListener('mouseup', () => isMouseDown = false);
+
+const clear = document.querySelector('#clear');
+clear.addEventListener('click', () => {generateGrid(parseInt(document.querySelector('#size').value))});
