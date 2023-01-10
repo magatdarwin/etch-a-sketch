@@ -33,6 +33,7 @@ main {
 /* temporary */
 #sketch-pad * {
   border: 1px dashed #eaeaea;
+  border-collapse: collapse;
 }
 
 .row {
