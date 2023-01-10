@@ -30,10 +30,9 @@ main {
   background-color: #ffffff;
 }
 
-/* temporary */
-#sketch-pad * {
+.border {
   border: 1px dashed #eaeaea;
-  border-collapse: collapse;
+  border-collapse: collapse;  
 }
 
 .row {

@@ -28,8 +28,11 @@ function generateGrid() {
     }
 
     CELLS = document.querySelectorAll('.column');
-    CELLS.forEach(cell => cell.addEventListener('mouseover', draw));
-    CELLS.forEach(cell => cell.addEventListener('click', draw));
+    CELLS.forEach(cell => {
+        cell.addEventListener('mouseover', draw);
+        cell.addEventListener('click', draw);
+        cell.classList.toggle('border');
+    });
 }
 
 function updateSketchPad(event) {
@@ -55,6 +58,7 @@ generateGrid();
 
 let sizeSlider = document.querySelector("#size");
 sizeSlider.addEventListener('input', updateSketchPad);
+sizeSlider.addEventListener('mouseout', () => {CELLS.forEach(cell => cell.classList.toggle('border'))});
 
 document.body.addEventListener('mousedown', () => isMouseDown = true);
 document.body.addEventListener('mouseup', () => isMouseDown = false);
