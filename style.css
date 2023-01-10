@@ -6,11 +6,11 @@ body {
   margin: 0;
   display: flex;
   flex-direction: column;
+  background-image: url('./images/paper.jpg');
 }
 
 header {
   text-align: center;
-  border: 1px solid black;
 }
 
 main {
