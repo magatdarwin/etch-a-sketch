@@ -29,6 +29,7 @@ function generateGrid() {
 
     CELLS = document.querySelectorAll('.column');
     CELLS.forEach(cell => cell.addEventListener('mouseover', draw));
+    CELLS.forEach(cell => cell.addEventListener('click', draw));
 }
 
 function updateSketchPad(event) {
@@ -41,7 +42,7 @@ function updateSketchPad(event) {
 
 function draw(event) {
     let color = isEraser ? 'white' : document.querySelector('#color').value;
-    if (isMouseDown) {
+    if (isMouseDown || event.type === 'click') {
         event.target.style.backgroundColor = color;
     }
 }
