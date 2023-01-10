@@ -72,6 +72,10 @@ button {
   background-color: #b6b6b6;
 }
 
+.enabled {
+  background-color: #6f9b6f;
+}
+
 .size-container {
   max-width: 100%;
   text-align: center;

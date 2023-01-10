@@ -40,7 +40,7 @@ function updateSketchPad(event) {
 }
 
 function draw(event) {
-    let color = document.querySelector('#color').value;
+    let color = isEraser ? 'white' : document.querySelector('#color').value;
     if (isMouseDown) {
         event.target.style.backgroundColor = color;
     }
@@ -48,6 +48,7 @@ function draw(event) {
 
 let CELLS;
 let isMouseDown = false;
+let isEraser = false;
 
 generateGrid();
 
@@ -59,3 +60,9 @@ document.body.addEventListener('mouseup', () => isMouseDown = false);
 
 const clear = document.querySelector('#clear');
 clear.addEventListener('click', generateGrid);
+
+const eraserButton = document.querySelector('#eraser');
+eraserButton.addEventListener('click', e => {
+    isEraser = isEraser ? false : true; 
+    e.target.classList.toggle('enabled');
+});
