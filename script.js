@@ -6,7 +6,7 @@ function clearAll() {
     }
 }
 
-function draw(size) {
+function generateGrid(size) {
     clearAll();
 
     const container = document.querySelector('#sketch-pad');
@@ -32,11 +32,11 @@ function updateSketchPad(event) {
     const sizeText = document.querySelector('#size-text');
     sizeText.textContent = `${size} x ${size}`;
 
-    draw(size);
+    generateGrid(size);
 }
 
 const initialSize = parseInt(document.querySelector('#size').value);
-draw(initialSize);
+generateGrid(initialSize);
 
 let size = document.querySelector("#size");
 size.addEventListener('input', updateSketchPad);
