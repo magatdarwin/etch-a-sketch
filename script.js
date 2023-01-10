@@ -25,13 +25,18 @@ function draw(size) {
 
         container.appendChild(row);
     }
-
-    console.log(container);
 }
 
-function updateSketchPad() {
+function updateSketchPad(event) {
+    const size = event.target.value;
+    const sizeText = document.querySelector('#size-text');
+    sizeText.textContent = `${size} x ${size}`;
 
+    draw(size);
 }
 
 const initialSize = parseInt(document.querySelector('#size').value);
 draw(initialSize);
+
+let size = document.querySelector("#size");
+size.addEventListener('input', updateSketchPad);
