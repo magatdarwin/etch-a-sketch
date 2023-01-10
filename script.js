@@ -25,6 +25,9 @@ function generateGrid(size) {
 
         container.appendChild(row);
     }
+
+    CELLS = document.querySelectorAll('.column');
+    CELLS.forEach(cell => cell.addEventListener('mouseover', draw));
 }
 
 function updateSketchPad(event) {
@@ -35,8 +38,20 @@ function updateSketchPad(event) {
     generateGrid(size);
 }
 
+function draw(event) {
+    if (isMouseDown) {
+        event.target.style.backgroundColor = 'black';
+    }
+}
+
+let CELLS;
+let isMouseDown = false;
+
 const initialSize = parseInt(document.querySelector('#size').value);
 generateGrid(initialSize);
 
 let size = document.querySelector("#size");
 size.addEventListener('input', updateSketchPad);
+
+document.body.addEventListener('mousedown', () => isMouseDown = true);
+document.body.addEventListener('mouseup', () => isMouseDown = false);
