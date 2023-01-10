@@ -63,8 +63,8 @@ main {
   height: 40px;
   width: 100px;
   cursor: pointer;
-  padding: 0;
-  border: none;
+  /* padding: 0; */
+  /* border: none; */
   border-radius: 6px;
 }
 
