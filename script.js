@@ -31,7 +31,6 @@ function generateGrid() {
     CELLS.forEach(cell => {
         cell.addEventListener('mouseover', draw);
         cell.addEventListener('click', draw);
-        cell.classList.toggle('border');
     });
 }
 
@@ -58,7 +57,9 @@ generateGrid();
 
 let sizeSlider = document.querySelector("#size");
 sizeSlider.addEventListener('input', updateSketchPad);
-sizeSlider.addEventListener('mouseout', () => {CELLS.forEach(cell => cell.classList.toggle('border'))});
+sizeSlider.addEventListener('input', () => {CELLS.forEach(cell => cell.classList.add('border'))});
+sizeSlider.addEventListener('mouseover', () => {CELLS.forEach(cell => cell.classList.add('border'))});
+sizeSlider.addEventListener('mouseout', () => {CELLS.forEach(cell => cell.classList.remove('border'))});
 
 document.body.addEventListener('mousedown', () => isMouseDown = true);
 document.body.addEventListener('mouseup', () => isMouseDown = false);
