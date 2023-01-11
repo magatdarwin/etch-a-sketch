@@ -44,7 +44,9 @@ function updateSketchPad(event) {
 
 function draw(event) {
     let color = isEraser ? 'white' : document.querySelector('#color').value;
-    if (isMouseDown || event.type === 'click') {
+
+    // Checks if the mouse is clicked during the mouseover event or if the click event itself is fired
+    if (event.buttons === 1 || event.type === 'click') {
         event.target.style.backgroundColor = color;
     }
 }
@@ -60,9 +62,6 @@ sizeSlider.addEventListener('input', updateSketchPad);
 sizeSlider.addEventListener('input', () => {CELLS.forEach(cell => cell.classList.add('border'))});
 sizeSlider.addEventListener('mouseover', () => {CELLS.forEach(cell => cell.classList.add('border'))});
 sizeSlider.addEventListener('mouseout', () => {CELLS.forEach(cell => cell.classList.remove('border'))});
-
-document.body.addEventListener('mousedown', () => isMouseDown = true);
-document.body.addEventListener('mouseup', () => isMouseDown = false);
 
 const clear = document.querySelector('#clear');
 clear.addEventListener('click', generateGrid);
