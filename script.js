@@ -31,6 +31,7 @@ function generateGrid() {
     CELLS.forEach(cell => {
         cell.addEventListener('mouseover', draw);
         cell.addEventListener('click', draw);
+        cell.ondragstart = () => false; // Prevents the default drag-and-drop behavior of the browser which stops the draw() function from being executed
     });
 }
 
