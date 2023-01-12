@@ -26,10 +26,10 @@ main {
 #sketch-pad {
   display: flex;
   flex-direction: column;
-  border: 1px solid black;
   height: 700px;
   width: 700px;
   background-color: #ffffff;
+  filter: drop-shadow(0 0 0.4rem rgb(6, 6, 6));
 }
 
 .border {
