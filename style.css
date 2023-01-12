@@ -95,6 +95,7 @@ button:hover {
   border: none;
   width: 60px;
   height: 60px;
+  cursor: pointer;
 }
 
 #color::-webkit-color-swatch {
