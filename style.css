@@ -62,11 +62,14 @@ main {
 .control {
   flex-grow: 1;
   height: 40px;
-  width: 100px;
   cursor: pointer;
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
   text-align: center;
+}
+
+.control * {
+  width: 100%;
 }
 
 .button-default {
@@ -90,13 +93,14 @@ button:hover {
   appearance: none;
   padding: 0;
   border: none;
+  width: 60px;
+  height: 60px;
 }
 
 #color::-webkit-color-swatch {
   border: none;
-  border-radius: 5px;
+  border-radius: 50%;
   filter: drop-shadow(0 0 0.2rem rgb(6, 6, 6));
-  width: 20px;
 }
 
 #size {
