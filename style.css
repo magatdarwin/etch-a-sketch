@@ -98,3 +98,23 @@ button:hover {
   filter: drop-shadow(0 0 0.2rem rgb(6, 6, 6));
   width: 20px;
 }
+
+#size {
+  -webkit-appearance: none;
+  background: #eaeaea;
+  border-radius: 10px;
+  height: 5px;
+  filter: drop-shadow(0 0 0.2rem rgb(6, 6, 6));
+  margin-bottom: 5px;
+
+}
+
+#size::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #434343;
+  cursor: pointer;
+} 
