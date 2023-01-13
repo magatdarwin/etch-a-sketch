@@ -35,12 +35,11 @@ function generateGrid() {
     });
 }
 
-function updateSketchPad(event) {
-    const size = event.target.value;
+function updateSizeText() {
+    const size = document.querySelector('#size').value;
     const sizeText = document.querySelector('#size-text');
-    sizeText.textContent = `${size} x ${size}`;
 
-    generateGrid();
+    sizeText.textContent = `${size} x ${size}`;
 }
 
 function draw(event) {
@@ -57,9 +56,13 @@ let isMouseDown = false;
 let isEraser = false;
 
 generateGrid();
+updateSizeText();
 
 let sizeSlider = document.querySelector("#size");
-sizeSlider.addEventListener('input', updateSketchPad);
+sizeSlider.addEventListener('input', () => {
+    updateSizeText();
+    generateGrid();
+});
 sizeSlider.addEventListener('input', () => {CELLS.forEach(cell => cell.classList.add('border'))});
 sizeSlider.addEventListener('mouseover', () => {CELLS.forEach(cell => cell.classList.add('border'))});
 sizeSlider.addEventListener('mouseout', () => {CELLS.forEach(cell => cell.classList.remove('border'))});
