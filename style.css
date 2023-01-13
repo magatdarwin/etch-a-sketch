@@ -96,9 +96,10 @@ button:hover {
   width: 60px;
   height: 60px;
   cursor: pointer;
+  background-color: transparent;
 }
 
-#color::-webkit-color-swatch {
+#color::-webkit-color-swatch, #color::-moz-color-swatch {
   border: none;
   border-radius: 50%;
   filter: drop-shadow(0 0 0.2rem rgb(6, 6, 6));
