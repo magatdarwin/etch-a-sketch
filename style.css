@@ -30,7 +30,7 @@ main {
   height: 700px;
   width: 700px;
   background-color: #ffffff;
-  filter: drop-shadow(0 0 0.4rem rgb(6, 6, 6));
+  filter: drop-shadow(0 0 0.2rem rgb(6, 6, 6));
 }
 
 .border {

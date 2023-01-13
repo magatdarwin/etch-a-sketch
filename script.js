@@ -52,7 +52,6 @@ function draw(event) {
 }
 
 let CELLS;
-let isMouseDown = false;
 let isEraser = false;
 
 generateGrid();
