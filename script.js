@@ -43,7 +43,20 @@ function updateSizeText() {
 }
 
 function draw(event) {
-    let color = isEraser ? 'white' : document.querySelector('#color').value;
+    let color;
+
+    switch(mode) {
+        case 'default':
+            color = document.querySelector('#color').value;
+            break;
+        case 'rainbow':
+            color = '#' + Math.floor(Math.random()*16777215).toString(16);
+            break;
+        case 'eraser':
+            let sketchPad = document.querySelector('#sketch-pad');
+            color = window.getComputedStyle(sketchPad).getPropertyValue('background-color');
+            break;
+    }
 
     // Checks if the mouse is clicked during the mouseover event or if the click event itself is fired
     if (event.buttons === 1 || event.type === 'click') {
@@ -51,8 +64,26 @@ function draw(event) {
     }
 }
 
+function changeMode(event) {
+    const newMode = event.target.id;
+
+    if (mode === newMode) {
+        mode = 'default';
+        event.target.classList.remove('enabled');
+    }
+    else {
+        let oldModeButton = document.querySelector('.enabled');
+        if (oldModeButton) {
+            oldModeButton.classList.remove('enabled');
+        }
+        mode = newMode;
+        event.target.classList.add('enabled');
+    }
+}
+
+
 let cells;
-let isEraser = false;
+let mode = 'default';
 
 generateGrid();
 updateSizeText();
@@ -69,8 +100,5 @@ sizeSlider.addEventListener('mouseout', () => {cells.forEach(cell => cell.classL
 const clear = document.querySelector('#clear');
 clear.addEventListener('click', generateGrid);
 
-const eraserButton = document.querySelector('#eraser');
-eraserButton.addEventListener('click', e => {
-    isEraser = isEraser ? false : true; 
-    e.target.classList.toggle('enabled');
-});
+const modes = document.querySelectorAll('.mode');
+modes.forEach(mode => mode.addEventListener('click', changeMode));
