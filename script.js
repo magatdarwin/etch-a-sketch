@@ -27,8 +27,8 @@ function generateGrid() {
         container.appendChild(row);
     }
 
-    CELLS = document.querySelectorAll('.column');
-    CELLS.forEach(cell => {
+    cells = document.querySelectorAll('.column');
+    cells.forEach(cell => {
         cell.addEventListener('mouseover', draw);
         cell.addEventListener('click', draw);
         cell.ondragstart = () => false; // Prevents the default drag-and-drop behavior of the browser which stops the draw() function from being executed
@@ -51,7 +51,7 @@ function draw(event) {
     }
 }
 
-let CELLS;
+let cells;
 let isEraser = false;
 
 generateGrid();
@@ -62,9 +62,9 @@ sizeSlider.addEventListener('input', () => {
     updateSizeText();
     generateGrid();
 });
-sizeSlider.addEventListener('input', () => {CELLS.forEach(cell => cell.classList.add('border'))});
-sizeSlider.addEventListener('mouseover', () => {CELLS.forEach(cell => cell.classList.add('border'))});
-sizeSlider.addEventListener('mouseout', () => {CELLS.forEach(cell => cell.classList.remove('border'))});
+sizeSlider.addEventListener('input', () => {cells.forEach(cell => cell.classList.add('border'))});
+sizeSlider.addEventListener('mouseover', () => {cells.forEach(cell => cell.classList.add('border'))});
+sizeSlider.addEventListener('mouseout', () => {cells.forEach(cell => cell.classList.remove('border'))});
 
 const clear = document.querySelector('#clear');
 clear.addEventListener('click', generateGrid);
