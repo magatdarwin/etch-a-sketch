@@ -156,7 +156,11 @@ footer {
   text-align: center;
   color: #434343;
   margin-top: auto;
-  margin-bottom: 15px;
+  margin-bottom: 5px;
+}
+
+footer a {
+  color: unset;
 }
 
 footer a:visited {
