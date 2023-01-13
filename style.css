@@ -99,7 +99,13 @@ button:hover {
   background-color: transparent;
 }
 
-#color::-webkit-color-swatch, #color::-moz-color-swatch {
+#color::-webkit-color-swatch {
+  border: none;
+  border-radius: 50%;
+  filter: drop-shadow(0 0 0.2rem rgb(6, 6, 6));
+}
+
+#color::-moz-color-swatch {
   border: none;
   border-radius: 50%;
   filter: drop-shadow(0 0 0.2rem rgb(6, 6, 6));
@@ -122,4 +128,14 @@ button:hover {
   border-radius: 50%;
   background: #434343;
   cursor: pointer;
-} 
+}
+
+#size::-moz-range-thumb {
+  -moz-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #434343;
+  cursor: pointer;
+}
